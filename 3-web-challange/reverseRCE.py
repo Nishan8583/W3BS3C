@@ -1,7 +1,7 @@
 import hashlib
 from itertools import chain
 probably_public_bits = [
-	'ninjas',# username
+	'reb_num',# username
 	'flask.app',# modname
 	'Flask',# getattr(app, '__name__', getattr(app.__class__, '__name__'))
 	'/usr/local/lib/python3.5/dist-packages/flask/app.py' # getattr(mod, '__file__', None),

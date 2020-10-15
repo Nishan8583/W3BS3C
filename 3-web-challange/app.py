@@ -30,7 +30,7 @@ def query_db(query, args=(), one=False):
         rv = [dict((cur.description[idx][0], str(value)) \
             for idx, value in enumerate(row)) for row in cur.fetchall()]
         return (rv[0] if rv else None) if one else rv
-
+'''
 @app.before_first_request
 def init_db():
     with app.open_resource('schema.sql', mode='r') as f:
@@ -40,7 +40,7 @@ def init_db():
 def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None: db.close()
-
+'''
 def rite_of_passage(func):
     @functools.wraps(func)
     def born2pwn(*args, **kwargs):
@@ -48,17 +48,18 @@ def rite_of_passage(func):
         name = request.args.get('name', '')
 
         if name:
-            query_db('INSERT INTO ninjas (name) VALUES ("%s")' % name)
+            print(name)
+            #query_db('INSERT INTO ninjas (name) VALUES ("%s")' % name)
 
-            report = render_template_string(acc_tmpl.
+            '''report = render_template_string(acc_tmpl.
                 replace('baby_ninja', query_db('SELECT name FROM ninjas ORDER BY id DESC', one=True)['name']).
                 replace('reb_num', query_db('SELECT COUNT(id) FROM ninjas', one=True).itervalues().next())
-            )
+            )'''
 
             if session.get('leader'): 
-                return report
-
-            return render_template('welcome.jinja2')
+                return "true"
+            return "not pawned {}".format(session.__dict__)
+            #return render_template('welcome.jinja2')
         return func(*args, **kwargs)
     return born2pwn
 
