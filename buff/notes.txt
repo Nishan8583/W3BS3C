@@ -20,3 +20,6 @@
 + http://10.10.10.198:8080/com2 (CODE:403|SIZE:1044)                                                                                                                                                                                         
 + http://10.10.10.198:8080/com3 (CODE:403|SIZE:1044)                                                                                                                                                                                         
 + http://10.10.10.198:8080/con (CODE:403|SIZE:1044)    
+
+
+https://medium.com/bugbountywriteup/privilege-escalation-in-windows-380bee3a2842
